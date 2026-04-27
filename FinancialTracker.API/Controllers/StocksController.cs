@@ -51,7 +51,7 @@ public class StocksController : ControllerBase
         {
             return NotFound(ex.Message);
         }
-        catch (Exception ex)
+        catch (InvalidOperationException ex)
         {
             return BadRequest(ex.Message);
         }

@@ -60,8 +60,8 @@ private readonly IAlphaVantageClient _alphaVantage;
 
         var quote = await _alphaVantage.GetQuoteAsync(symbol);
         if (quote == null)
-            throw new Exception($"Could not fetch price for '{symbol}' from Alpha Vantage.");
-
+            throw new InvalidOperationException($"Could not fetch price for '{symbol}' from Alpha Vantage.");
+            
         var record = new PriceRecord
         {
             StockId = stock.Id,
