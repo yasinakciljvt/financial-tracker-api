@@ -9,12 +9,11 @@ public class StockService : IStockService
 {
     private readonly IStockRepository _stockRepo;
     private readonly IPriceRecordRepository _priceRepo;
-    private readonly AlphaVantageClient _alphaVantage;
-
+private readonly IAlphaVantageClient _alphaVantage;
     public StockService(
         IStockRepository stockRepo,
         IPriceRecordRepository priceRepo,
-        AlphaVantageClient alphaVantage)
+        IAlphaVantageClient alphaVantage)
     {
         _stockRepo = stockRepo;
         _priceRepo = priceRepo;

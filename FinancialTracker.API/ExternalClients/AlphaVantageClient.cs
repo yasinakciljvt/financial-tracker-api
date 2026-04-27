@@ -2,8 +2,7 @@ using System.Text.Json;
 
 namespace FinancialTracker.API.ExternalClients;
 
-public class AlphaVantageClient
-{
+public class AlphaVantageClient : IAlphaVantageClient{
     private readonly HttpClient _httpClient;
     private readonly string _apiKey;
     private readonly string _baseUrl;
