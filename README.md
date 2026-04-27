@@ -28,7 +28,7 @@ Stock watchlist API built with .NET 8. Tracks prices via Alpha Vantage and expos
 ## Setup
 
 ```bash
-git clone <repo-url>
+git clone <https://github.com/yasinakciljvt/financial-tracker-api.git>
 cd financial-tracker-api
 
 export AlphaVantage__ApiKey="your_key"
