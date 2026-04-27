@@ -26,12 +26,15 @@ FinancialTracker.API/
 
 ---
 
-## Design Pattern
+## Design Patterns
 
-**Repository Pattern** — used in `IStockRepository` and `IPriceRecordRepository`.
+**Repository Pattern** — `IStockRepository`, `IPriceRecordRepository`
 
 The service layer never touches `DbContext` directly. This keeps business logic decoupled from EF Core, makes unit testing straightforward (repositories are mocked via interfaces), and means the storage layer can be swapped without touching service code.
 
+**Strategy Pattern** — `IQuoteProvider`, `AlphaVantageClient`
+
+Price fetching behavior is abstracted behind `IQuoteProvider`. `StockService` has no knowledge of which API provider is being used. Swapping from Alpha Vantage to Finnhub (or any other source) requires only a new implementation — no changes to business logic or controllers. This also makes the service fully testable without real HTTP calls.
 ---
 
 ## API Endpoints
