@@ -1,7 +1,17 @@
 using Microsoft.EntityFrameworkCore;
 using FinancialTracker.API.Data;
+using FinancialTracker.API.ExternalClients;
+using FinancialTracker.API.Repositories;
+using FinancialTracker.API.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+
+builder.Services.AddScoped<IStockRepository, StockRepository>();
+builder.Services.AddScoped<IPriceRecordRepository, PriceRecordRepository>();
+builder.Services.AddScoped<IStockService, StockService>();
+builder.Services.AddHttpClient<AlphaVantageClient>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

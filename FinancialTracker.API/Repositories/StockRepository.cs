@@ -19,6 +19,11 @@ public class StockRepository : IStockRepository
     {
         return await _context.Stocks.ToListAsync();
     }
+public Task DeleteAsync(Stock stock)
+{
+    _context.Stocks.Remove(stock);
+    return Task.CompletedTask;
+}
 
     public async Task<Stock?> GetBySymbolAsync(string symbol)
     {
@@ -36,10 +41,6 @@ public class StockRepository : IStockRepository
         await _context.Stocks.AddAsync(stock);
     }
 
-    public async Task DeleteAsync(Stock stock)
-    {
-        _context.Stocks.Remove(stock);
-    }
 
     public async Task SaveChangesAsync()
     {
