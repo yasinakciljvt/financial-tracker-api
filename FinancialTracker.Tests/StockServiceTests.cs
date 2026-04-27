@@ -11,15 +11,15 @@ public class StockServiceTests
 {
     private readonly Mock<IStockRepository> _stockRepoMock;
     private readonly Mock<IPriceRecordRepository> _priceRepoMock;
-    private readonly Mock<IAlphaVantageClient> _alphaVantageMock;
+private readonly Mock<IQuoteProvider> _quoteProviderMock;
     private readonly StockService _service;
 
     public StockServiceTests()
     {
         _stockRepoMock = new Mock<IStockRepository>();
         _priceRepoMock = new Mock<IPriceRecordRepository>();
-        _alphaVantageMock = new Mock<IAlphaVantageClient>();
-        _service = new StockService(_stockRepoMock.Object, _priceRepoMock.Object, _alphaVantageMock.Object);
+        _quoteProviderMock = new Mock<IQuoteProvider>();
+        _service = new StockService(_stockRepoMock.Object, _priceRepoMock.Object, _quoteProviderMock.Object);
     }
 
     [Fact]

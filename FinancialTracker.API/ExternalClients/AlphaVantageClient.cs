@@ -2,7 +2,9 @@ using System.Text.Json;
 
 namespace FinancialTracker.API.ExternalClients;
 
-public class AlphaVantageClient : IAlphaVantageClient{
+// Strategy Pattern: Alpha Vantage bu interface'in bir implementasyonudur.
+public class AlphaVantageClient : IQuoteProvider
+{
     private readonly HttpClient _httpClient;
     private readonly string _apiKey;
     private readonly string _baseUrl;

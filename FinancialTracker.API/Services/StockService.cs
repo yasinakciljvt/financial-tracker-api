@@ -9,15 +9,16 @@ public class StockService : IStockService
 {
     private readonly IStockRepository _stockRepo;
     private readonly IPriceRecordRepository _priceRepo;
-private readonly IAlphaVantageClient _alphaVantage;
+    private readonly IQuoteProvider _quoteProvider;
+
     public StockService(
         IStockRepository stockRepo,
         IPriceRecordRepository priceRepo,
-        IAlphaVantageClient alphaVantage)
+        IQuoteProvider quoteProvider)
     {
         _stockRepo = stockRepo;
         _priceRepo = priceRepo;
-        _alphaVantage = alphaVantage;
+        _quoteProvider = quoteProvider;
     }
 
     public async Task<List<StockResponse>> GetAllStocksAsync()
@@ -58,10 +59,10 @@ private readonly IAlphaVantageClient _alphaVantage;
         if (stock == null)
             throw new KeyNotFoundException($"Stock '{symbol}' not found.");
 
-        var quote = await _alphaVantage.GetQuoteAsync(symbol);
+        var quote = await _quoteProvider.GetQuoteAsync(symbol);
         if (quote == null)
-            throw new InvalidOperationException($"Could not fetch price for '{symbol}' from Alpha Vantage.");
-            
+            throw new InvalidOperationException($"Could not fetch price for '{symbol}' from the quote provider.");
+
         var record = new PriceRecord
         {
             StockId = stock.Id,
