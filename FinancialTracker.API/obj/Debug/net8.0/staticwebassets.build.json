@@ -1,11 +1,39 @@
 {
   "Version": 1,
-  "Hash": "Mptljphijowq1fiIO2KLN3+Kmnjvo6ylksNr58xtvR4=",
+  "Hash": "YRs30AAKImQFGCuuStC9GIvHJmlmBIeQznLhQSj84NA=",
   "Source": "FinancialTracker.API",
   "BasePath": "_content/FinancialTracker.API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "FinancialTracker.API/wwwroot",
+      "Source": "FinancialTracker.API",
+      "ContentRoot": "/home/yasinjxt/FinancialTracker/FinancialTracker.API/wwwroot/",
+      "BasePath": "_content/FinancialTracker.API",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "/home/yasinjxt/FinancialTracker/FinancialTracker.API/wwwroot/index.html",
+      "SourceId": "FinancialTracker.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/yasinjxt/FinancialTracker/FinancialTracker.API/wwwroot/",
+      "BasePath": "_content/FinancialTracker.API",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/index.html"
+    }
+  ]
 }
